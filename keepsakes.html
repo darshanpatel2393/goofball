@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sonuuu OS · Keepsakes</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/keepsakes.css">
+</head>
+<body data-gift="11">
+<main class="wrap" id="os">
+
+  <header class="lockscreen center" id="lockscreen">
+    <span class="tag">✦ Sonuuu OS · birthday edition</span>
+    <p class="clock" id="clock">--:--</p>
+    <p class="hint" id="date"></p>
+    <h1 id="hello">Hello, <em>Sonuuu</em> 💙</h1>
+  </header>
+
+  <section class="apps" id="home" aria-label="Apps">
+    <button class="app a-letters" data-app="letters"><span class="ico">💌</span><b>Open When</b><i class="badge" id="bd-letters"></i></button>
+    <button class="app a-coupons" data-app="coupons"><span class="ico">🎟️</span><b>Coupons</b><i class="badge" id="bd-coupons"></i></button>
+    <button class="app a-wheel" data-app="wheel"><span class="ico">🎡</span><b>Spin</b></button>
+    <!-- <button class="app a-momo" data-app="momo"><span class="ico">🥟</span><b>Magic Momo</b></button> -->
+    <button class="app a-garden" data-app="garden"><span class="ico">🌷</span><b>Garden</b></button>
+    <button class="app a-capsule" data-app="capsule"><span class="ico">⏳</span><b>Capsule</b></button>
+  </section>
+  <p class="hint center" id="homehint">Tap an app. Every one has a little surprise inside.</p>
+  <p class="center" id="replay"><a class="btn ghost" href="index.html">↺ Start the quest again</a></p>
+
+  <!-- ===== Open When ===== -->
+  <section class="panel" id="p-letters" hidden>
+    <div class="pbar"><button class="back">‹ Home</button><h2>Open When</h2></div>
+    <p class="hint">Open each one only when the moment is right. They will wait for you.</p>
+    <div class="envs" id="envs"></div>
+  </section>
+
+  <!-- ===== Coupons ===== -->
+  <section class="panel" id="p-coupons" hidden>
+    <div class="pbar"><button class="back">‹ Home</button><h2>Coupons</h2></div>
+    <p class="hint">Scratch to reveal, then redeem. They never expire.</p>
+    <div class="coupons" id="coupons"></div>
+  </section>
+
+  <!-- ===== Wheel ===== -->
+  <section class="panel center" id="p-wheel" hidden>
+    <div class="pbar"><button class="back">‹ Home</button><h2>Spin the Wheel</h2></div>
+    <p class="hint">Whatever it lands on, I owe you.</p>
+    <div class="wheelwrap">
+      <div class="pointer"></div>
+      <div class="wheel" id="wheel"></div>
+      <div class="hub">💙</div>
+    </div>
+    <button class="btn" id="spin">Spin</button>
+    <div class="card prize" id="prize" aria-live="polite">&nbsp;</div>
+  </section>
+
+  <!-- ===== Magic Momo ===== -->
+  <section class="panel center" id="p-momo" hidden>
+    <div class="pbar"><button class="back">‹ Home</button><h2>Magic Momo</h2></div>
+    <p class="hint">Think of a question. Then give the momo a tap.</p>
+    <button class="momo" id="momo" aria-label="Ask the magic momo">🥟</button>
+    <div class="card answer" id="answer" aria-live="polite">Ask me anything...</div>
+  </section>
+
+  <!-- ===== Garden ===== -->
+  <section class="panel center" id="p-garden" hidden>
+    <div class="pbar"><button class="back">‹ Home</button><h2>Your Garden</h2></div>
+    <p class="hint">Tap anywhere to plant a flower. There is no limit.</p>
+    <div class="garden" id="garden"></div>
+    <p class="script" id="gmsg">&nbsp;</p>
+    <button class="btn ghost" id="gclear">Clear the garden</button>
+  </section>
+
+  <!-- ===== Capsule ===== -->
+  <section class="panel center" id="p-capsule" hidden>
+    <div class="pbar"><button class="back">‹ Home</button><h2>Time Capsule</h2></div>
+    <div class="capsule">
+      <button class="padlock" id="padlock" aria-label="Time capsule lock">🔒</button>
+      <p class="hint" id="caphint">A note from me, locked until 3 November 2027.</p>
+      <div id="capcd" class="countdown"></div>
+      <div id="capnote" hidden><p class="msg" style="text-align:left"></p></div>
+    </div>
+  </section>
+</main>
+
+<!-- letter sheet -->
+<div class="sheet" id="sheet" hidden>
+  <div class="paper">
+    <p class="script" id="sh-title"></p>
+    <p class="msg" id="sh-text"></p>
+    <button class="btn" id="sh-close">Fold it back 💌</button>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+  /* ================= EDIT EVERYTHING BELOW ================= */
+
+  /* Open-when letters. e = emoji, t = finishes "Open when ...", b = the letter */
+  window.LETTERS = [
+    { e: '😢', t: 'you are sad',          b: 'Hey, come here. It is okay to feel sad. Breathe slowly. You have gotten through every hard day so far, and you will get through this one too. I am only a message away, always.' },
+    { e: '🥺', t: 'you miss me',          b: 'Missing someone means they matter. I miss you too. Look at our photos, play a song you love, and know that I am thinking of you right now.' },
+    { e: '😂', t: 'you need a laugh',     b: 'Remember the time we... (write your funniest memory here). I still laugh about it. Now go laugh, you have my permission.' },
+    { e: '🌙', t: 'you cannot sleep',     b: 'Put the phone down, take three slow breaths, and think of one good thing from today. Tomorrow will be kinder. Sleep well, Sonuuu.' },
+    { e: '💪', t: 'you doubt yourself',   b: 'You are far more talented, kind and strong than you believe. I have watched you for years. I believe in you, even on the days you do not.' },
+    { e: '🎨', t: 'you need inspiration', b: 'Open your colours, pick the first one your eyes land on, and just start. It does not have to be perfect. It only has to be yours.' }
+  ];
+
+  /* Coupons. e = emoji, t = title, s = small print */
+  window.COUPONS = [
+    { e: '🥟', t: 'One momo date, my treat',      s: 'Any place you choose' },
+    { e: '🎨', t: 'One art-supply shopping day',  s: 'I carry the bags' },
+    { e: '🎬', t: 'One movie night, you pick',    s: 'No complaints from me' },
+    { e: '👂', t: 'One long talk, I just listen', s: 'As long as you need' }
+  ];
+
+  /* The prize wheel: keep exactly 8 entries. e = emoji on the wheel, t = what she wins */
+  window.WHEEL = [
+    { e: '🥟', t: 'Momo time! Tell me when you are hungry.' },
+    { e: '🎨', t: 'Draw something blue and send it to me.' },
+    { e: '🎵', t: 'You pick a song. I listen to it on repeat all day.' },
+    { e: '😂', t: 'I owe you one terrible joke.' },
+    { e: '🌷', t: 'A flower, just because.' },
+    { e: '💬', t: 'Ask me anything. I will answer honestly.' },
+    { e: '🎁', t: 'A small wish. Name it (within reason).' }
+  ];
+
+  /* The note she can open on 3 Nov 2027 (new line = &#10; is not needed here, just use \n) */
+  window.CAPSULE_NOTE = 'Dear Sonuuu,\n\nIt has been a whole year! Write here what you hope happened this year, what you want to tell her now, and a promise for the next one.\n\nHappy Birthday again. 💙\nDP';
+</script>
+<script src="js/app.js"></script>
+<script src="js/keepsakes.js"></script>
+</body>
+</html>
