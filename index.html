@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sonuuu's Birthday Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-home>
+<main class="wrap center">
+  <span class="tag">Hey Clumsy GoofBall</span>
+  <h1>Happy Birthday<br><em>Sonuuu</em> 🌷</h1>
+  <section class="card">
+    <p>I made <b>10 little surprises</b> for you. Play each game to open the next one, and a message from my heart is waiting at every step.</p>
+    <div id="cd" class="countdown"></div>
+    <p id="status" class="script"></p>
+    <p id="go" class="nextwrap" hidden><a class="btn" href="surprise1.html">Begin 💙</a></p>
+  </section>
+  <div class="photo wide tilt" data-src="images/sonia.jpg" data-label="Sonuuu"></div>
+</main>
+<script src="js/app.js"></script>
+<script>
+  (function(){
+    var s = document.getElementById('status');
+    function open(){
+      document.getElementById('cd').hidden = true;
+      s.textContent = "It's your day, Sonuuu!";
+      document.getElementById('go').hidden = false;
+    }
+    if (SB.preview || new Date() >= SB.UNLOCK) { open(); }
+    else { s.textContent = 'Your surprises open at midnight...'; SB.countdown(document.getElementById('cd'), open); }
+  })();
+</script>
+</body>
+</html>

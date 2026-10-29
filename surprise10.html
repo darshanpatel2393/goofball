@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sonuuu, Everywhere · Sonuuu</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-gift="10">
+<main class="wrap center">
+  <span class="tag">✦ Sonuuu, Everywhere</span>
+
+  <section class="card" id="game">
+    <h2 id="wtitle">It's so dark in here... 🔦</h2>
+    <p class="hint" id="whint">Run your finger across the wall to find her. Light up every photo.</p>
+    <div class="wall" id="wall"><div class="beam" id="beam"></div></div>
+    <button class="btn ghost" id="lights" hidden>Turn on the lights 💡</button>
+  </section>
+
+  <section class="card reveal" id="gift" hidden>
+    <h2 class="script">Look how bright you shine</h2>
+    <!-- EDIT YOUR MESSAGE in data-text below (&#10; = new line) -->
+    <p class="msg" id="msg" data-text="Do you see it now? Every single photo has one thing in common: you, lighting up the frame.&#10;&#10;You walk into a room and it gets warmer. You laugh and everyone around you starts smiling too. You never notice the light you carry, so I wanted you to see it from the outside, just once.&#10;&#10;Never dim yourself for anyone, Sonuuu. The world is brighter with you in it, and so is my life.&#10;&#10;Happy Birthday, my brightest star. 💙"></p>
+    <p class="nextwrap"><a class="btn" href="keepsakes.html">Open your keepsakes 🎁</a></p>
+  </section>
+</main>
+
+<div class="lightbox" id="lb" hidden>
+  <div id="lbphoto"></div>
+  <p class="script" id="lbcap">Sonuuu 💙</p>
+  <button class="btn" id="lbx">Close</button>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/g10.js"></script>
+</body>
+</html>

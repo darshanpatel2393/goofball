@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Make a Wish · Sonuuu</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-gift="9">
+<main class="wrap center">
+  <span class="tag">✦ Make a Wish</span>
+
+  <section class="card" id="game">
+    <h2>Make a wish 🎂</h2>
+    <p class="hint">Blow out the candles. Use the mic, or tap the button.</p>
+    <svg id="cake" viewBox="0 0 300 270" aria-label="Birthday cake with candles">
+      <ellipse cx="150" cy="252" rx="130" ry="10" fill="#000" opacity=".25"/>
+      <rect x="40" y="180" width="220" height="68" rx="14" fill="#1f4fd8"/>
+      <rect x="40" y="180" width="220" height="16" rx="8" fill="#fff6ea"/>
+      <rect x="75" y="128" width="150" height="56" rx="12" fill="#7cc4ff"/>
+      <rect x="75" y="128" width="150" height="14" rx="7" fill="#fff6ea"/>
+      <rect x="105" y="86" width="90" height="46" rx="10" fill="#ff8fb1"/>
+      <rect x="105" y="86" width="90" height="12" rx="6" fill="#fff6ea"/>
+      <g fill="#fff6ea" opacity=".85">
+        <circle cx="70" cy="222" r="5"/><circle cx="110" cy="226" r="5"/><circle cx="150" cy="222" r="5"/><circle cx="190" cy="226" r="5"/><circle cx="230" cy="222" r="5"/>
+        <circle cx="105" cy="160" r="4"/><circle cx="150" cy="164" r="4"/><circle cx="195" cy="160" r="4"/>
+      </g>
+      <g id="candles">
+        <rect x="116" y="58" width="8" height="30" rx="2" fill="#ffd166"/><ellipse class="flame" cx="120" cy="50" rx="6" ry="11" fill="#ffb347"/>
+        <rect x="133" y="58" width="8" height="30" rx="2" fill="#fff6ea"/><ellipse class="flame" cx="137" cy="50" rx="6" ry="11" fill="#ffb347"/>
+        <rect x="146" y="58" width="8" height="30" rx="2" fill="#ffd166"/><ellipse class="flame" cx="150" cy="50" rx="6" ry="11" fill="#ffb347"/>
+        <rect x="159" y="58" width="8" height="30" rx="2" fill="#fff6ea"/><ellipse class="flame" cx="163" cy="50" rx="6" ry="11" fill="#ffb347"/>
+        <rect x="176" y="58" width="8" height="30" rx="2" fill="#ffd166"/><ellipse class="flame" cx="180" cy="50" rx="6" ry="11" fill="#ffb347"/>
+      </g>
+    </svg>
+    <div class="row">
+      <button class="btn" id="mic">🎤 Blow</button>
+      <button class="btn ghost" id="tap">Tap to blow</button>
+    </div>
+    <p class="hint" id="fb"></p>
+  </section>
+
+  <section class="card reveal" id="gift" hidden>
+    <div class="photo wide tilt" data-src="images/sonia.jpg" data-label="Sonuuu"></div>
+    <h2 class="final">Happy Birthday,<br><em>Sonuuu</em> 🌷</h2>
+    <!-- EDIT YOUR MESSAGE in data-text below -->
+    <p class="msg" id="msg" data-text="I hope your wish comes true. And if it needs a little help, you know who to call.&#10;&#10;Now let me show you something I have been wanting you to see. 💙"></p>
+    <p class="nextwrap"><a class="btn" href="surprise10.html">Turn on the lights 💡</a></p>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/g9.js"></script>
+</body>
+</html>
