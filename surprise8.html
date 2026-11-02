@@ -6,6 +6,21 @@
 <meta name="robots" content="noindex">
 <title>In My Own Words · Sonuuu</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* styles for this page only: the YouTube card */
+  .vid{position:relative;display:block;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid var(--line);
+    background:linear-gradient(135deg,var(--royal),var(--pink));color:#fff;text-decoration:none;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+  .vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .vid .play{position:absolute;left:50%;top:50%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;
+    background:rgba(255,255,255,.94);color:var(--navy);display:grid;place-items:center;padding-left:5px;
+    box-shadow:0 0 0 10px rgba(255,255,255,.22),0 12px 28px rgba(0,0,0,.4);animation:beat 1.8s infinite}
+  .vid .vcap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;font:700 .85rem 'DM Sans',sans-serif;letter-spacing:.02em;
+    background:linear-gradient(transparent,rgba(5,13,36,.82))}
+  .vid:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+  .vid.off{filter:grayscale(.7);pointer-events:none}
+  .vidnote{color:var(--gold)}
+  @media (prefers-reduced-motion:reduce){.vid .play{animation:none}}
+</style>
 </head>
 <body data-gift="8">
 <main class="wrap center">
@@ -17,21 +32,41 @@
     <button id="hold" aria-label="Hold the heart"><span>💙</span></button>
   </section>
 
+  <!-- Video card: opens your YouTube video in a new tab (no video file is hosted on the site) -->
+  <section class="card reveal" id="video" hidden>
+    <h2 class="script">Press play, Sonuuu 🎬</h2>
+    <a class="vid" id="vid" href="#" target="_blank" rel="noopener noreferrer" aria-label="Watch the video on YouTube (opens in a new tab)">
+      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      <span class="vcap">Tap to watch · opens in a new tab</span>
+    </a>
+    <p class="hint">I made this just for you. Watch it, then come back here, there is more waiting 💙</p>
+    <p class="hint vidnote" id="vidnote" hidden></p>
+    <button class="btn ghost" id="skip" hidden>Continue without the video</button>
+  </section>
+
+  <!-- Voice note: optional. If media/voice.mp3 is not on the site, this card hides itself. -->
   <section class="card reveal" id="voice" hidden>
-    <h2 class="script">Press play, Sonuuu 🎧</h2>
-    <video controls playsinline preload="metadata" src="media/video.mp4" poster="images/video-poster.JPG"></video>
+    <h2 class="script">And something to hear 🎧</h2>
+    <audio controls preload="metadata" src="media/voice.mp3"></audio>
   </section>
 
   <section class="card reveal" id="letter" hidden>
     <h2 class="script">A letter for you</h2>
     <!-- EDIT YOUR LETTER in data-text below. Tap the letter to show it all at once. -->
-    <p class="letter" id="lt" data-text="Dear Sonuuu,&#10;&#10;Happy Birthday to my Home Girl, my favourite person to talk to, and the one who makes ordinary days feel special.&#10;&#10;Thank you for every laugh, every late-night talk, and every time you stayed when it was hard. I don't say it enough, but you matter so much to me.&#10;&#10;I hope this year gives you all your heart wants. Keep creating, keep shining,keep smiling, keep growing, stay healthy, and never forget how loved you are.💖&#10;&#10;"></p>
+    <p class="letter" id="lt" data-text="Dear Sonuuu,&#10;&#10;Happy Birthday to my best friend, my favourite person to talk to, and the one who makes ordinary days feel special.&#10;&#10;Thank you for every laugh, every late-night talk, and every time you stayed when it was hard. I don't say it enough, but you matter so much to me.&#10;&#10;I hope this year gives you all the colours, all the tulips, and all the momos your heart wants. Keep creating, keep shining, and never forget how loved you are.&#10;&#10;Always yours,&#10;DP 💙"></p>
   </section>
 
   <section class="reveal" id="more" hidden>
     <p class="nextwrap"><a class="btn" href="surprise9.html">Time to make a wish 🎂</a></p>
   </section>
 </main>
+
+<script>
+  /* PASTE YOUR YOUTUBE LINK between the quotes.
+     Any normal link works: https://youtu.be/xxxxxxxxxxx  or  https://www.youtube.com/watch?v=xxxxxxxxxxx  or a Shorts link.
+     In YouTube, set the video to "Unlisted" (not "Private", or she will not be able to watch it). */
+  window.VIDEO_URL = 'PASTE_YOUR_YOUTUBE_LINK_HERE';
+</script>
 <script src="js/app.js"></script>
 <script src="js/g8.js"></script>
 </body>
